@@ -1,1 +1,11 @@
+title: Vulnerability Research
+description: Reverse Engineering, Exploit Development and Vulnerability Research
 
+theme: minima
+
+markdown: kramdown
+
+permalink: /:title/
+
+plugins:
+  - jekyll-feed
