@@ -1,0 +1,42 @@
+{%- comment -%}
+  Usage: {% include icon.html name="github" %}
+  Minimal inline icon set so the site needs zero external icon fonts.
+{%- endcomment -%}
+{%- assign i = include.name -%}
+{%- if i == "github" -%}
+<svg class="icon" viewBox="0 0 24 24" stroke-width="1.6"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+{%- elsif i == "linkedin" -%}
+<svg class="icon" viewBox="0 0 24 24" stroke-width="1.6"><path d="M6.5 8.5H4V20h2.5V8.5Zm-1.25-4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM9.5 8.5H12v1.6c.6-.9 1.7-1.9 3.4-1.9 3 0 3.6 1.9 3.6 4.4V20H16.5v-6.4c0-1.5 0-3.4-2.1-3.4-2.1 0-2.4 1.6-2.4 3.3V20H9.5V8.5Z"/></svg>
+{%- elsif i == "mail" -%}
+<svg class="icon" viewBox="0 0 24 24" stroke-width="1.6"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+{%- elsif i == "file" -%}
+<svg class="icon" viewBox="0 0 24 24" stroke-width="1.6"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/></svg>
+{%- elsif i == "arrow" -%}
+<svg class="icon" viewBox="0 0 24 24" stroke-width="1.8"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+{%- elsif i == "chevron" -%}
+<svg class="icon" viewBox="0 0 24 24" stroke-width="1.8"><path d="m9 6 6 6-6 6"/></svg>
+{%- elsif i == "user" -%}
+<svg class="icon" viewBox="0 0 24 24" stroke-width="1.6"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c1.2-3.6 4-5.2 7-5.2s5.8 1.6 7 5.2"/></svg>
+{%- elsif i == "gear" -%}
+<svg class="icon" viewBox="0 0 24 24" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a7.6 7.6 0 0 0 0-2l2-1.5-2-3.4-2.4.7a7.7 7.7 0 0 0-1.7-1L14.7 3H9.3l-.6 2.8a7.7 7.7 0 0 0-1.7 1l-2.4-.7-2 3.4L4.6 11a7.6 7.6 0 0 0 0 2l-2 1.5 2 3.4 2.4-.7c.5.4 1.1.8 1.7 1l.6 2.8h5.4l.6-2.8c.6-.2 1.2-.6 1.7-1l2.4.7 2-3.4-2-1.5Z"/></svg>
+{%- elsif i == "calendar" -%}
+<svg class="icon" viewBox="0 0 24 24" stroke-width="1.6"><rect x="4" y="5" width="16" height="15" rx="1"/><path d="M4 9h16M8 3v4M16 3v4"/></svg>
+{%- elsif i == "folder" -%}
+<svg class="icon" viewBox="0 0 24 24" stroke-width="1.6"><path d="M4 6h5l2 2h9v10H4Z"/></svg>
+{%- elsif i == "binary" -%}
+<svg class="icon" viewBox="0 0 24 24" stroke-width="1.6"><rect x="3" y="8" width="7" height="8" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg>
+{%- elsif i == "globe" -%}
+<svg class="icon" viewBox="0 0 24 24" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 4 6 4 9s-1.4 6.4-4 9c-2.6-2.6-4-6-4-9s1.4-6.4 4-9Z"/></svg>
+{%- elsif i == "code" -%}
+<svg class="icon" viewBox="0 0 24 24" stroke-width="1.6"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg>
+{%- elsif i == "search" -%}
+<svg class="icon" viewBox="0 0 24 24" stroke-width="1.6"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.3-4.3"/></svg>
+{%- elsif i == "wrench" -%}
+<svg class="icon" viewBox="0 0 24 24" stroke-width="1.6"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 1 5.4-5.4L21 6l-3-3-3.3 3.3Z"/></svg>
+{%- elsif i == "skull" -%}
+<svg class="icon" viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 3a8 8 0 0 0-8 8c0 3 1.5 4.9 3 6v3h3v-2h4v2h3v-3c1.5-1.1 3-3 3-6a8 8 0 0 0-8-8Z"/><circle cx="9" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="1.3" fill="currentColor" stroke="none"/><path d="M11 15h2"/></svg>
+{%- elsif i == "lock" -%}
+<svg class="icon" viewBox="0 0 24 24" stroke-width="1.6"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.3" fill="currentColor" stroke="none"/></svg>
+{%- elsif i == "terminal" -%}
+<svg class="icon" viewBox="0 0 24 24" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="1.5"/><path d="m7 9 3 3-3 3M13 15h4"/></svg>
+{%- endif -%}
