@@ -1,1 +1,18 @@
-
+---
+layout: page
+title: Research
+eyebrow: Independent Research
+subtitle: Vulnerability research, CVEs, and technical write-ups from ongoing projects.
+permalink: /research/
+---
+<div class="card-grid">
+  {% for item in site.research %}
+    <div class="tile">
+      <span class="eyebrow">{{ item.status | default: "Research" }}</span>
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.description }}</p>
+    </div>
+  {% endfor %}
+</div>
+<p style="margin-top:32px;">Add new entries by dropping a markdown file into <code>_research/</code> — see
+<code>_research/example-research.md</code> for the expected front matter.</p>
