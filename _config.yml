@@ -1,11 +1,65 @@
-title: Vulnerability Research
-description: Reverse Engineering, Exploit Development and Vulnerability Research
+title: Null Dragon
+tagline: Vulnerability Research
+description: >-
+  Exploring systems, uncovering vulnerabilities, and sharing knowledge
+  to build a more secure digital world.
+author: Null Dragon
 
-theme: minima
+# IMPORTANT: baseurl must match your repo name if this is NOT a
+# "username.github.io" repo. See README.md for details.
+# Example: if your repo is github.com/TheNullDragon/portfolio, use:
+#   baseurl: "/portfolio"
+# If your repo is github.com/TheNullDragon/TheNullDragon.github.io, use:
+baseurl: ""
+url: "https://thenulldragon.github.io"
+
+# Social links shown in the header/footer
+github_username: TheNullDragon
+linkedin_url: "https://www.linkedin.com/in/your-linkedin-handle"
+email: "you@example.com"
+
+# Home page "About" blurb (sidebar) + full About page live in about.md
+about_short: >-
+  Cybersecurity engineer and vulnerability researcher with a passion
+  for reverse engineering, exploit development, and defensive security.
+
+# Number of posts to show on the home page
+home_post_limit: 3
 
 markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
 
-permalink: /:title/
+collections:
+  research:
+    output: true
+    permalink: /research/:path/
+  tools:
+    output: true
+    permalink: /tools/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "research"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "tools"
+    values:
+      layout: "page"
 
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
