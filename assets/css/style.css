@@ -520,3 +520,186 @@ img { max-width: 100%; display: block; }
   .hero-heading { font-size: 2.1rem; }
   .site-footer .wrap { flex-direction: column; text-align: center; }
 }
+
+/* ========================================================================
+   2026 hero refresh — image-based Null Dragon artwork
+   ======================================================================== */
+:root {
+  --bg: #050509;
+  --bg-alt: #08080e;
+  --card: #0d0d14;
+  --card-border: #24202f;
+  --purple: #b04cff;
+  --purple-light: #d19aff;
+  --purple-dark: #65209d;
+  --max-width: 1420px;
+}
+
+body {
+  background:
+    radial-gradient(circle at 76% 8%, rgba(103, 32, 157, .10), transparent 34rem),
+    var(--bg);
+}
+
+.site-header {
+  background: rgba(3, 3, 7, .94);
+  border-bottom-color: rgba(176, 76, 255, .24);
+}
+
+.site-header .wrap {
+  min-height: 112px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.brand img.logo { width: 54px; height: 54px; }
+.brand-name { font-size: 1.65rem; }
+.brand-tag { font-size: .67rem; letter-spacing: .28em; }
+.main-nav { gap: 42px; font-size: .88rem; }
+.header-icons a { border-color: transparent; }
+
+.hero {
+  min-height: 600px;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 80% 54%, rgba(122, 36, 185, .14), transparent 33rem),
+    #050509;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(176,76,255,.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(176,76,255,.018) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 55%, #000 100%);
+  pointer-events: none;
+}
+
+.hero .wrap {
+  grid-template-columns: minmax(430px, .82fr) minmax(620px, 1.18fr);
+  gap: 0;
+  min-height: 600px;
+  padding-top: 0;
+  padding-bottom: 0;
+  position: relative;
+}
+
+.hero-copy-wrap {
+  position: relative;
+  z-index: 3;
+  padding: 84px 0 78px;
+}
+
+.hero-heading {
+  font-size: clamp(2.65rem, 4.2vw, 4.15rem);
+  line-height: 1.05;
+  letter-spacing: .015em;
+  margin: 28px 0 24px;
+  text-shadow: 0 2px 24px rgba(0,0,0,.9);
+}
+
+.hero-heading .accent {
+  background: linear-gradient(90deg, #9c35e8, #cf76ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-copy {
+  font-size: 1.09rem;
+  line-height: 1.75;
+  max-width: 49ch;
+}
+
+.hero-actions { gap: 30px; }
+.btn { padding: 17px 30px; font-size: .84rem; min-height: 62px; }
+.btn-solid { background: linear-gradient(135deg, #7224a9, #4e177f); }
+
+.hero-art {
+  position: absolute;
+  top: 0;
+  right: -24px;
+  bottom: 0;
+  width: 68%;
+  aspect-ratio: auto;
+  overflow: hidden;
+  display: block;
+  z-index: 1;
+}
+
+.hero-art__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 53% 50%;
+  filter: saturate(.96) contrast(1.06) brightness(.91);
+}
+
+.hero-art__glow {
+  position: absolute;
+  z-index: 2;
+  inset: 10% 2% 7% 12%;
+  background: radial-gradient(circle at 57% 54%, rgba(176,76,255,.25), transparent 42%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.hero-art__fade {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  background:
+    linear-gradient(90deg, #050509 0%, rgba(5,5,9,.92) 9%, rgba(5,5,9,.28) 31%, transparent 48%),
+    linear-gradient(0deg, #050509 0%, transparent 13%, transparent 87%, rgba(5,5,9,.35) 100%);
+  pointer-events: none;
+}
+
+.content-grid { padding-top: 42px; }
+.post-card, .widget {
+  background: linear-gradient(145deg, rgba(16,16,24,.96), rgba(9,9,15,.96));
+  box-shadow: 0 16px 50px rgba(0,0,0,.18);
+}
+
+@media (max-width: 1100px) {
+  .main-nav { gap: 24px; }
+  .hero .wrap { grid-template-columns: .9fr 1.1fr; }
+  .hero-art { width: 65%; }
+}
+
+@media (max-width: 900px) {
+  .site-header .wrap { min-height: 82px; }
+  .hero { min-height: auto; }
+  .hero .wrap { display: block; min-height: 720px; }
+  .hero-copy-wrap { padding: 62px 0 360px; }
+  .hero-art {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 430px;
+    max-width: none;
+  }
+  .hero-art__fade {
+    background:
+      linear-gradient(180deg, #050509 0%, rgba(5,5,9,.22) 31%, transparent 55%),
+      linear-gradient(0deg, #050509 0%, transparent 20%);
+  }
+}
+
+@media (max-width: 620px) {
+  .header-icons a:not(:last-of-type) { display: none; }
+  .brand img.logo { width: 42px; height: 42px; }
+  .brand-name { font-size: 1.18rem; }
+  .brand-tag { font-size: .52rem; }
+  .hero .wrap { min-height: 680px; }
+  .hero-copy-wrap { padding-top: 46px; padding-bottom: 330px; }
+  .hero-heading { font-size: clamp(2.1rem, 12vw, 3rem); }
+  .hero-copy { font-size: .98rem; }
+  .hero-actions { gap: 14px; }
+  .btn { width: 100%; justify-content: center; min-height: 54px; }
+  .hero-art { height: 370px; }
+}
