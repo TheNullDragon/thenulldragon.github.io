@@ -1,0 +1,41 @@
+<aside>
+  <div class="widget">
+    <h3>{% include icon.html name="user" %} About</h3>
+    <p>{{ site.about_short }}</p>
+    <a class="btn btn-outline" href="{{ '/about/' | relative_url }}">LEARN MORE {% include icon.html name="arrow" %}</a>
+  </div>
+
+  <div class="widget">
+    <h3>{% include icon.html name="gear" %} Categories</h3>
+    <ul class="cat-list">
+      {%- assign cats = site.categories | sort -%}
+      {%- for cat in cats -%}
+        {%- assign cat_name = cat[0] -%}
+        {%- assign cat_posts = cat[1] -%}
+        {%- assign icon_name = "folder" -%}
+        {%- if cat_name contains "Binary" -%}{%- assign icon_name = "binary" -%}
+        {%- elsif cat_name contains "Web" -%}{%- assign icon_name = "globe" -%}
+        {%- elsif cat_name contains "Fuzz" -%}{%- assign icon_name = "code" -%}
+        {%- elsif cat_name contains "Reverse" -%}{%- assign icon_name = "search" -%}
+        {%- elsif cat_name contains "Tool" -%}{%- assign icon_name = "wrench" -%}
+        {%- elsif cat_name contains "Writeup" -%}{%- assign icon_name = "file" -%}
+        {%- endif -%}
+        <li>
+          <a href="{{ '/blog/' | relative_url }}?category={{ cat_name | slugify }}">
+            {% include icon.html name=icon_name %} {{ cat_name }}
+          </a>
+          <span class="cat-count">{{ cat_posts | size }}</span>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+
+  <div class="widget">
+    <h3>{% include icon.html name="gear" %} Connect</h3>
+    <ul class="connect-list">
+      <li><a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">{% include icon.html name="github" %} GitHub</a></li>
+      <li><a href="{{ site.linkedin_url }}" target="_blank" rel="noopener">{% include icon.html name="linkedin" %} LinkedIn</a></li>
+      <li><a href="mailto:{{ site.email }}">{% include icon.html name="mail" %} Email</a></li>
+    </ul>
+  </div>
+</aside>
