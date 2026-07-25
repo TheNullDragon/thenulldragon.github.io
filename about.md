@@ -1,26 +1,24 @@
 ---
 layout: page
 title: About
-eyebrow: Who I Am
-subtitle: A bit more about the person behind Null Dragon.
+subtitle: The researcher behind the handle—without the unnecessary personal details.
 permalink: /about/
 ---
 
-## Background
+## Hi, I'm Null Dragon.
 
-Cybersecurity engineer and vulnerability researcher with a passion for
-reverse engineering, exploit development, and defensive security.
-*(Replace this paragraph with your own bio.)*
+I'm a cybersecurity researcher who enjoys understanding how systems break, why they break, and how to make them more secure. My interests include vulnerability research, reverse engineering, exploit analysis, threat intelligence, and translating technical findings into useful defensive insights.
 
-## Focus Areas
+I use this site to document what I learn—not only successful findings, but also the methods, assumptions, dead ends, and lessons that make the research reproducible. I would rather publish one honest, useful write-up than fill the site with placeholder content.
 
-- Binary exploitation and memory corruption
-- Fuzzing and automated bug discovery
-- Reverse engineering of closed-source binaries
-- Web application security
+## What I focus on
 
-## Get In Touch
+- Vulnerability discovery and coordinated disclosure
+- Reverse engineering and exploit-path analysis
+- Threat actor, infrastructure, malware, and toolkit research
+- Indicators of compromise with context and confidence
+- Detection opportunities and defensive takeaways
 
-Have a question, a bug bounty write-up idea, or just want to talk
-shop? Head over to the [Contact page]({{ '/contact/' | relative_url }})
-or reach out on [GitHub](https://github.com/{{ site.github_username }}).
+## Privacy by design
+
+Null Dragon is a research identity. I do not publish my real name, employer, location, email address, or direct-contact details here. The only external profile linked from this site is [GitHub](https://github.com/{{ site.github_username }}).

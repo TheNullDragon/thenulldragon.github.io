@@ -1,16 +1,19 @@
 ---
 layout: default
 ---
-<section class="post-header wrap">
-  <span class="eyebrow">{{ page.categories | first }}</span>
-  <h1>{{ page.title }}</h1>
-  <div class="post-meta">
-    <span>{% include icon.html name="calendar" %} {{ page.date | date: "%B %-d, %Y" }}</span>
-    {% for cat in page.categories %}
-      <span class="cat">{% include icon.html name="folder" %} {{ cat }}</span>
-    {% endfor %}
+<section class="post-header">
+  <div class="wrap post-header-inner">
+    <span class="eyebrow">{{ page.categories | first | default: "RESEARCH WRITE-UP" }}</span>
+    <h1>{{ page.title }}</h1>
+    <p class="post-deck">{{ page.excerpt }}</p>
+    <div class="post-meta">
+      <span>{{ page.date | date: "%B %-d, %Y" }}</span>
+      {% if page.status %}<span class="status-badge">{{ page.status }}</span>{% endif %}
+      {% for cat in page.categories %}<span>{{ cat }}</span>{% endfor %}
+    </div>
   </div>
 </section>
 <article class="post-content wrap">
   {{ content }}
+  <div class="post-end"><span>END OF ENTRY</span><a href="{{ '/research/' | relative_url }}">RETURN TO RESEARCH {% include icon.html name="arrow" %}</a></div>
 </article>
