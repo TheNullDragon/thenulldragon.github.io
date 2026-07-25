@@ -2,53 +2,72 @@
 layout: default
 title: Home
 ---
-<section class="hero">
-  <div class="wrap">
+<section class="hero hero-war-room">
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="wrap hero-content hero-content-single">
     <div class="hero-copy-wrap">
-      <span class="eyebrow">Vulnerability Researcher</span>
-      <h1 class="hero-heading">Finding Flaws.<br>Breaking <span class="accent">Barriers.</span></h1>
-      <div class="hero-rule"></div>
-      <p class="hero-copy">{{ site.description }}</p>
+      <span class="eyebrow">INDEPENDENT CYBERSECURITY RESEARCH</span>
+      <h1>Hi, I'm <span class="accent">Null Dragon.</span></h1>
+      <p class="hero-lead">I research vulnerabilities, reverse engineer systems, track threat actors, and document what I learn.</p>
+      <p class="hero-support">This is my research lab—a growing collection of technical write-ups, threat intelligence, experiments, and defensive takeaways.</p>
       <div class="hero-actions">
         {% assign latest = site.posts.first %}
-        <a class="btn btn-solid" href="{{ latest.url | relative_url }}">{% include icon.html name="file" %} LATEST BLOG POST</a>
-        <a class="btn btn-outline" href="{{ '/research/' | relative_url }}">VIEW RESEARCH {% include icon.html name="chevron" %}</a>
+        {% if latest %}<a class="btn btn-solid" href="{{ latest.url | relative_url }}">LATEST WRITE-UP {% include icon.html name="arrow" %}</a>{% endif %}
+        <a class="btn btn-outline" href="{{ '/research/' | relative_url }}">EXPLORE RESEARCH</a>
+        <a class="btn btn-ghost" href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener noreferrer">GITHUB {% include icon.html name="github" %}</a>
       </div>
     </div>
-    {% include hero-art.html %}
+  </div>
+  <a class="hero-scroll" href="#research-focus" aria-label="Continue to research areas">SCROLL <span aria-hidden="true">↓</span></a>
+</section>
+
+<section class="section wrap" id="research-focus">
+  <div class="section-heading split-heading">
+    <div><span class="eyebrow">WHAT I RESEARCH</span><h2>Four connected disciplines.</h2></div>
+    <p>I approach security from both sides: understanding how systems fail and how adversaries turn those failures into real-world operations.</p>
+  </div>
+  <div class="focus-grid">
+    <article class="focus-card"><span class="card-number">01</span><h3>Vulnerability Research</h3><p>I find and document weaknesses in software, appliances, operating systems, and security boundaries.</p><a href="{{ '/research/' | relative_url }}">VIEW RESEARCH {% include icon.html name="arrow" %}</a></article>
+    <article class="focus-card"><span class="card-number">02</span><h3>Threat Intelligence</h3><p>I research threat actors, campaigns, infrastructure, indicators of compromise, malware, and operator toolkits.</p><a href="{{ '/threat-intel/' | relative_url }}">VIEW THREAT INTEL {% include icon.html name="arrow" %}</a></article>
+    <article class="focus-card"><span class="card-number">03</span><h3>Reverse Engineering</h3><p>I break systems and binaries into understandable pieces to uncover behavior, trust assumptions, and attack paths.</p><a href="{{ '/research/' | relative_url }}#reverse-engineering">EXPLORE THE PROCESS {% include icon.html name="arrow" %}</a></article>
+    <article class="focus-card"><span class="card-number">04</span><h3>Defensive Insights</h3><p>I turn offensive findings and adversary behavior into useful detections, mitigations, and lessons for defenders.</p><a href="{{ '/research/' | relative_url }}#defensive-insights">SEE DEFENSIVE NOTES {% include icon.html name="arrow" %}</a></article>
   </div>
 </section>
 
-<div class="wrap content-grid">
-  <div>
-    <div class="section-heading">
-      <h2>{% include icon.html name="file" %} Latest Posts</h2>
-      <a class="view-all" href="{{ '/blog/' | relative_url }}">VIEW ALL POSTS {% include icon.html name="arrow" %}</a>
-    </div>
-
-    {% assign home_posts = site.posts | slice: 0, site.home_post_limit %}
-    {% for post in home_posts %}
-      <div class="post-card">
-        <div class="thumb">
-          {% if post.image %}
-            <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
-          {% else %}
-            {% assign post_icon = post.icon | default: "code" %}
-            {% include icon.html name=post_icon %}
-          {% endif %}
-        </div>
-        <div class="body">
-          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-          <div class="post-meta">
-            <span>{% include icon.html name="calendar" %} {{ post.date | date: "%B %-d, %Y" }}</span>
-            {% if post.categories.first %}<span class="cat">{% include icon.html name="folder" %} {{ post.categories.first }}</span>{% endif %}
-          </div>
-          <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 26 }}</p>
-          <a class="read-more" href="{{ post.url | relative_url }}">READ MORE {% include icon.html name="arrow" %}</a>
-        </div>
-      </div>
-    {% endfor %}
+<section class="section section-dark">
+  <div class="wrap">
+    <div class="section-heading"><span class="eyebrow">FEATURED RESEARCH</span><h2>Corelight appliance research</h2></div>
+    {% assign featured = site.posts | where: "featured", true | first %}
+    {% if featured %}
+    <article class="featured-card">
+      <div class="featured-meta"><span class="status-badge">{{ featured.status | default: "WRITE-UP" }}</span><span>COORDINATED DISCLOSURE</span></div>
+      <h3><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h3>
+      <p>{{ featured.excerpt | strip_html }}</p>
+      <a class="btn btn-outline" href="{{ featured.url | relative_url }}">OPEN WRITE-UP {% include icon.html name="arrow" %}</a>
+    </article>
+    {% else %}
+    <article class="featured-card"><div class="featured-meta"><span class="status-badge">COMING SOON</span></div><h3>Corelight Appliance Research</h3><p>I'm preparing the full technical write-up and will publish it when it is ready.</p></article>
+    {% endif %}
   </div>
+</section>
 
-  {% include sidebar.html %}
-</div>
+<section class="section wrap two-column-section">
+  <div>
+    <span class="eyebrow">CURRENT INVESTIGATIONS</span>
+    <h2>Research in progress.</h2>
+    <p>I publish when the work is reproducible, responsibly disclosed where necessary, and ready to be useful. New material may arrive slowly, but it will be real.</p>
+  </div>
+  <div class="pipeline-list">
+    <div><span>Vulnerability Research</span><strong>ACTIVE</strong></div>
+    <div><span>Threat Actor Profiling</span><strong>EXPANDING</strong></div>
+    <div><span>Malware &amp; Toolkit Analysis</span><strong>PLANNED</strong></div>
+    <div><span>Reverse Engineering Notes</span><strong>ONGOING</strong></div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="wrap about-strip">
+    <div><span class="eyebrow">ABOUT MY WORK</span><h2>Curiosity, evidence, and reproducible research.</h2></div>
+    <div><p>I'm Null Dragon. I enjoy understanding how systems break, why attackers choose particular techniques, and what defenders can learn from both. I share the process—not just polished outcomes—while keeping personal details separate from the research.</p><a class="text-link" href="{{ '/about/' | relative_url }}">MORE ABOUT MY APPROACH {% include icon.html name="arrow" %}</a></div>
+  </div>
+</section>
