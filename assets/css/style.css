@@ -75,16 +75,20 @@ svg { width: 1em; height: 1em; }
 
 
 .hero-war-room {
-  min-height: min(900px, calc(100vh - 78px));
   position: relative;
   isolation: isolate;
-  display: grid;
-  align-items: center;
-  background-image: url("../images/null-dragon-war-room.webp");
-  background-size: cover;
-  background-position: center center;
+  width: 100%;
+  min-height: 0;
+  background: #05060c;
   border-bottom: 1px solid var(--line);
   overflow: hidden;
+}
+.hero-war-room-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: -3;
 }
 .hero-war-room::before {
   content: "";
@@ -92,33 +96,58 @@ svg { width: 1em; height: 1em; }
   inset: 0;
   z-index: -2;
   background:
-    linear-gradient(90deg, rgba(5,6,12,.96) 0%, rgba(5,6,12,.88) 24%, rgba(5,6,12,.45) 48%, rgba(5,6,12,.12) 70%, rgba(5,6,12,.28) 100%),
-    linear-gradient(180deg, rgba(5,6,12,.25) 0%, transparent 52%, rgba(8,7,12,.84) 100%);
+    linear-gradient(90deg, rgba(5,6,12,.48) 0%, rgba(5,6,12,.28) 32%, rgba(5,6,12,.06) 66%, rgba(5,6,12,.12) 100%),
+    linear-gradient(180deg, rgba(5,6,12,.08) 0%, transparent 62%, rgba(8,7,12,.58) 100%);
+  pointer-events: none;
 }
 .hero-war-room::after {
   content: "";
   position: absolute;
   inset: auto 0 0;
-  height: 30%;
+  height: 20%;
   z-index: -1;
-  background: linear-gradient(transparent, var(--bg));
+  background: linear-gradient(transparent, rgba(8,7,12,.72));
+  pointer-events: none;
 }
 .hero-shade {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: radial-gradient(circle at 42% 48%, rgba(151,63,255,.08), transparent 28%);
+  background: radial-gradient(circle at 33% 48%, rgba(151,63,255,.06), transparent 30%);
+  pointer-events: none;
 }
-.hero-content { display: grid; align-items: center; padding-block: 110px 130px; }
-.hero-content-single { grid-template-columns: minmax(0, 760px) 1fr; }
+.hero-content {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-items: center;
+  padding-block: clamp(34px, 5vw, 84px);
+  pointer-events: none;
+}
+.hero-content-single { grid-template-columns: minmax(0, 680px) 1fr; }
 .hero-copy-wrap {
-  max-width: 720px;
-  padding: 34px 36px;
-  background: linear-gradient(135deg, rgba(8,7,12,.82), rgba(8,7,12,.54));
-  border: 1px solid rgba(183,104,255,.28);
-  box-shadow: 0 26px 90px rgba(0,0,0,.45);
-  backdrop-filter: blur(10px);
+  width: min(620px, 43vw);
+  max-width: 620px;
+  padding: clamp(24px, 2.6vw, 38px);
+  background: linear-gradient(135deg, rgba(8,7,12,.50), rgba(8,7,12,.28));
+  border: 1px solid rgba(183,104,255,.30);
+  box-shadow: 0 22px 76px rgba(0,0,0,.34);
+  backdrop-filter: blur(7px) saturate(112%);
+  -webkit-backdrop-filter: blur(7px) saturate(112%);
+  pointer-events: auto;
 }
+.hero h1 {
+  font-size: clamp(2.8rem, 5.1vw, 5.7rem);
+  letter-spacing: -.045em;
+  max-width: 680px;
+  margin-top: 16px;
+  text-shadow: 0 8px 42px rgba(0,0,0,.72);
+}
+.accent { color: var(--purple); text-shadow: 0 0 34px rgba(183,104,255,.42); }
+.hero-lead { max-width: 600px; font-size: clamp(1.02rem, 1.35vw, 1.32rem); color: white; margin: 22px 0 0; }
+.hero-support { max-width: 590px; color: rgba(222,214,232,.82); font-size: clamp(.88rem, .96vw, 1rem); margin: 12px 0 0; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+
 .eyebrow { color: var(--purple-3); font: 600 .72rem/1.3 var(--mono); letter-spacing: .16em; text-transform: uppercase; }
 h1,h2,h3 { font-family: var(--display); line-height: 1.12; margin: 0; }
 .hero h1 { font-size: clamp(3.1rem, 6.3vw, 6.6rem); letter-spacing: -.045em; max-width: 760px; margin-top: 16px; text-shadow: 0 8px 42px rgba(0,0,0,.65); }
@@ -233,7 +262,6 @@ h1,h2,h3 { font-family: var(--display); line-height: 1.12; margin: 0; }
 @media (max-width: 1100px) {
   .main-nav { gap: 16px; }
   .github-link span { display: none; }
-  .hero-content-single { grid-template-columns: minmax(0, 700px) 1fr; }
   .focus-grid { grid-template-columns: repeat(2,1fr); }
   .focus-card:nth-child(2) { border-right: 0; }
   .focus-card:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
@@ -249,11 +277,13 @@ h1,h2,h3 { font-family: var(--display); line-height: 1.12; margin: 0; }
   .main-nav a { padding: 16px; }
   .main-nav a::after { bottom: 7px; left: 16px; right: 100%; }
   .header-actions { margin-left: auto; }
-  .hero-war-room { min-height: 760px; background-position: 54% center; }
-  .hero-war-room::before { background: linear-gradient(90deg, rgba(5,6,12,.95), rgba(5,6,12,.68) 58%, rgba(5,6,12,.22)); }
-  .hero-content-single { grid-template-columns: minmax(0, 620px) 1fr; }
-  .hero-content { padding-block: 86px 110px; }
-  .hero-copy-wrap { padding: 28px; }
+  .hero-content-single { grid-template-columns: minmax(0, 560px) 1fr; }
+  .hero-copy-wrap { width: min(560px, 54vw); padding: 26px; }
+  .hero h1 { font-size: clamp(2.7rem, 6.8vw, 4.7rem); }
+  .hero-lead { font-size: 1.04rem; }
+  .hero-support { font-size: .9rem; }
+  .hero-actions { margin-top: 20px; }
+  .hero-actions .btn { min-height: 42px; padding-inline: 14px; }
   .split-heading, .two-column-section, .about-strip { grid-template-columns: 1fr; gap: 30px; }
   .section { padding-block: 78px; }
   .research-tracks { grid-template-columns: 1fr; }
@@ -265,11 +295,26 @@ h1,h2,h3 { font-family: var(--display); line-height: 1.12; margin: 0; }
 @media (max-width: 580px) {
   .brand-name { font-size: .86rem; }
   .logo { width: 40px; height: 40px; }
-  .hero-war-room { min-height: auto; background-position: 48% center; }
-  .hero-war-room::before { background: linear-gradient(180deg, rgba(5,6,12,.62), rgba(5,6,12,.92) 68%, rgba(5,6,12,.98)); }
+  .hero-war-room-art { width: 100%; height: auto; }
+  .hero-war-room::before {
+    background: linear-gradient(180deg, rgba(5,6,12,.04) 0%, rgba(5,6,12,.14) 70%, rgba(5,6,12,.58) 100%);
+  }
+  .hero-content {
+    position: relative;
+    inset: auto;
+    display: block;
+    padding: 0 0 34px;
+    margin-top: -34px;
+  }
   .hero-content-single { grid-template-columns: 1fr; }
-  .hero-content { padding-block: 330px 86px; }
-  .hero-copy-wrap { padding: 24px; background: rgba(8,7,12,.84); }
+  .hero-copy-wrap {
+    width: auto;
+    max-width: none;
+    padding: 24px;
+    background: rgba(8,7,12,.78);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
   .hero h1 { font-size: clamp(2.75rem, 15vw, 4.5rem); }
   .hero-actions .btn { width: 100%; }
   .hero-scroll { display: none; }
