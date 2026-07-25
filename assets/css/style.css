@@ -80,6 +80,7 @@ svg { width: 1em; height: 1em; }
   width: 100%;
   min-height: 0;
   background: #05060c;
+  background-image: none;
   border-bottom: 1px solid var(--line);
   overflow: hidden;
 }
@@ -88,13 +89,13 @@ svg { width: 1em; height: 1em; }
   width: 100%;
   height: auto;
   position: relative;
-  z-index: -3;
+  z-index: 0;
 }
 .hero-war-room::before {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: -2;
+  z-index: 1;
   background:
     linear-gradient(90deg, rgba(5,6,12,.48) 0%, rgba(5,6,12,.28) 32%, rgba(5,6,12,.06) 66%, rgba(5,6,12,.12) 100%),
     linear-gradient(180deg, rgba(5,6,12,.08) 0%, transparent 62%, rgba(8,7,12,.58) 100%);
@@ -105,14 +106,14 @@ svg { width: 1em; height: 1em; }
   position: absolute;
   inset: auto 0 0;
   height: 20%;
-  z-index: -1;
+  z-index: 1;
   background: linear-gradient(transparent, rgba(8,7,12,.72));
   pointer-events: none;
 }
 .hero-shade {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 2;
   background: radial-gradient(circle at 33% 48%, rgba(151,63,255,.06), transparent 30%);
   pointer-events: none;
 }
@@ -123,6 +124,7 @@ svg { width: 1em; height: 1em; }
   align-items: center;
   padding-block: clamp(34px, 5vw, 84px);
   pointer-events: none;
+  z-index: 3;
 }
 .hero-content-single { grid-template-columns: minmax(0, 680px) 1fr; }
 .hero-copy-wrap {
@@ -164,6 +166,7 @@ h1,h2,h3 { font-family: var(--display); line-height: 1.12; margin: 0; }
 .btn-ghost:hover { color: white; border-color: var(--line-strong); background: rgba(183,104,255,.08); }
 .hero-scroll {
   position: absolute;
+  z-index: 3;
   left: 50%;
   bottom: 24px;
   transform: translateX(-50%);
@@ -304,16 +307,19 @@ h1,h2,h3 { font-family: var(--display); line-height: 1.12; margin: 0; }
     inset: auto;
     display: block;
     padding: 0 0 34px;
-    margin-top: -34px;
+    margin-top: -42px;
+    z-index: 3;
   }
   .hero-content-single { grid-template-columns: 1fr; }
   .hero-copy-wrap {
     width: auto;
     max-width: none;
     padding: 24px;
-    background: rgba(8,7,12,.78);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: linear-gradient(135deg, rgba(8,7,12,.72), rgba(8,7,12,.52));
+    border: 1px solid rgba(183,104,255,.32);
+    box-shadow: 0 18px 55px rgba(0,0,0,.38);
+    backdrop-filter: blur(9px) saturate(112%);
+    -webkit-backdrop-filter: blur(9px) saturate(112%);
   }
   .hero h1 { font-size: clamp(2.75rem, 15vw, 4.5rem); }
   .hero-actions .btn { width: 100%; }
